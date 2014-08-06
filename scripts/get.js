@@ -15,7 +15,7 @@ _.each($('table a'), function(i) {
 });
 
 function removeS(str) {
-    return str.replace('?utm_source=bitcoinweekly&utm_medium=email', '');
+    return str.replace('?utm_source=dartweekly&utm_medium=email', '');
 }
 
 str

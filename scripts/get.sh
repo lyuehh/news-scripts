@@ -10,6 +10,6 @@ do
         rm ${dir}/$i.csv
     fi
     echo "processing $i"
-    curl -s "http://bitcoinweekly.com/issues/$i" | hquery -p -f 'get.js' | gsed '1 i title,link' > ${dir}/$i.csv
+    curl -s "http://dartweekly.com/issues/$i" | hquery -p -f 'get.js' | gsed '1 i title,link' > ${dir}/$i.csv
 done
 
