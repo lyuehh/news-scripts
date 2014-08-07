@@ -19,5 +19,11 @@ do
         echo "get $name issue $id ..."
         curl -s $url | hquery -p -f 'get_weekly.js' | gsed '1 i title,link' > ../weekly/${name}/${id}.csv
     fi
-
 done
+
+cd ..
+git fetch
+git pull origin master
+git add .
+git commit -m 'auto update'
+git push origin master
