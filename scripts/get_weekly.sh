@@ -1,5 +1,14 @@
 #!/bin/sh
 
+if [ `uname` != 'Linux' ];
+then
+    s='gsed'
+else
+    s='sed'
+fi
+
+echo '123' | ${s} '1 i 000'
+
 for i in `jq '.[].url' weekly.json | sed 's/"//g'`
 # for i in "http://bitcoinweekly.com/"
 do
@@ -17,7 +26,7 @@ do
         # echo $name
         # echo $file
         echo "get $name issue $id ..."
-        curl -s $url | hquery -p -f 'get_weekly.js' | gsed '1 i title,link' > ../weekly/${name}/${id}.csv
+        curl -s $url | hquery -p -f 'get_weekly.js' | ${s} '1 i title,link' > ../weekly/${name}/${id}.csv
     fi
 done
 
