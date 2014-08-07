@@ -7,8 +7,6 @@ else
     s='sed'
 fi
 
-echo '123' | ${s} '1 i 000'
-
 for i in `jq '.[].url' weekly.json | sed 's/"//g'`
 # for i in "http://bitcoinweekly.com/"
 do
