@@ -5,6 +5,8 @@ _.each($('table a'), function(i) {
     if (text.indexOf('cooperpress') == -1
         && text !== 'Archive'
         && text !== 'Read this issue on the Web'
+        && text !== 'Read this e-mail on the Web'
+        && text !== 'Rackspace'
         && text != 'Peter Cooper'
         && link.indexOf('cooperpress') == -1
         && link.indexOf('UPDATE_PROFILE') == -1
@@ -15,7 +17,7 @@ _.each($('table a'), function(i) {
 });
 
 function removeS(str) {
-    return str.replace('?utm_source=dartweekly&utm_medium=email', '');
+    return str.replace(/\?utm_source=.*&utm_medium=email/g, '')
 }
 
 str
